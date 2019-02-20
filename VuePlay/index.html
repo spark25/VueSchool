@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue School</title>
+    <script src="static/JS/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- <input type="text" v-on:input="chnageTitle"> -->
+        <p v-once>{{ title }}</p>
+        <h2>{{ sayHello()}} - <a v-bind:href="link">Google</a> </h2>
+        <p v-on:mousemove="updateCoordinates">coordinates: {{ x }} / {{ y }}</p>
+    </div>
+
+
+
+
+    <script>
+        new Vue({
+            el:'#app',
+            data: {
+                title:'Hello World',
+                link: 'http://google.co.in',
+                x:0,
+                y:0,
+            },
+            methods:{
+                // chnageTitle: function(event){
+                // this.title = event.target.value;
+                // },
+                sayHello: function() {
+                    this.title = 'New hello';
+                    return this.title;
+                },
+
+                updateCoordinates: function (e){
+                    this.x = e.clientX;
+                    this.y = e.clientY;
+                },
+            }
+            });
+    </script>
+</body>
+</html>
